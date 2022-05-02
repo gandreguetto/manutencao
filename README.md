@@ -25,6 +25,17 @@ Nós reduzimos a dimensionidade eliminando colunas que apresentam uma quantidade
 
 Nós testamos alguns modelos de classificação e o modelo XGBoost foi o que apresentou melhor performance. Esse foi então o modelo que utilizamos para realizar a predição da manutenção dos veículos. 
 
+![modelos](https://user-images.githubusercontent.com/88217999/166236593-3860d051-16d5-4a63-bf75-6cf77ef4fb1d.png)
+
+## "Correção" do desbalanceamento das classes
+
 Uma outra característica importante nesses dados é que há um forte desbalanceamento nas classes da variável de resposta. Nos dados pré 2020 temos 59000 pertencentes à classe "neg" (veículos que não precisaram de manutenção) e apenas 1000 na classe "pos" (veículos que precisaram de manutenção). Esse desblancemanto foi remediado incluindo-se um peso maior na classe minoritária durante o ajuste dos modelos. 
 
-No modelo XGBoost esse peso adicional é incluído através do hyperparêmetro "scale_pos_weight".   
+No modelo XGBoost esse peso adicional é incluído através do hyperparêmetro "scale_pos_weight". Utilizamos o valor scale_pos_weight = 1000, que foi o valor que forneceu a maior sensibilidade na previsão durante a tunagem desse parâmetro. 
+
+Com esse ajuste a sensibilidade passa de 0.76 para 0.83.
+
+## Resultado da aplicação do modelo nos dados de 2020 e conclusões sobre a otimização no sistema
+
+O modelo XGBoost treinado nos dados pré 2020 apresenta sensibilidade de 0.848 quando aplicado nos dados de 2020. Ou seja, o modelo prediz corretamente 84.8% dos veículos que precisaram de manutenção.
+
