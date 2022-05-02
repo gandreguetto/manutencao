@@ -37,5 +37,24 @@ Com esse ajuste a sensibilidade passa de 0.76 para 0.83.
 
 ## Resultado da aplicação do modelo nos dados de 2020 e conclusões sobre a otimização no sistema
 
-O modelo XGBoost treinado nos dados pré 2020 apresenta sensibilidade de 0.848 quando aplicado nos dados de 2020. Ou seja, o modelo prediz corretamente 84.8% dos veículos que precisaram de manutenção.
+O modelo XGBoost treinado nos dados pré 2020 apresenta sensibilidade de 0.848 (s = 0.848) quando aplicado nos dados de 2020. Ou seja, o modelo prediz corretamente 84.8% dos veículos que precisaram de manutenção.
 
+Para determinarmos quanto teria sido gasto em 2020 se uma estratégia que utilizasse dessas predições fosse utilizada nós olhamos para alguns outros números.
+
+O modelo prediz a manutenção de 396 veículos (P = 396) enquanto os dados apresentam 375 veículos que precisaram de manutenção (M = 375).
+
+Número de predições corretas:
+
+PC = s . 375 = 318.
+
+Número de veículos que precisaram de manutenção mas não foram preditos:
+
+NP = M - PC = 375 - 318 = 57.
+
+Calculamos agora o valor que teria sido gasto em 2020. Lembrando que o valor da manutenção preventiva é vp = $10 e o valor da manutenção corretiva é de vc = $500, o valor total gasto se a manutenção preventiva tivesse sido feita nos veículos preditos teria sido de:
+
+total gasto  = vp . P + vc . NP = $10 . 396 + $500 . 57 = $32460. 
+
+Esse valor está bem abaixo do valor real que foi gasto de $187500.
+
+Portanto, essa nova estratégia baseada em Machine Learning fornece uma grande redução nos custo com a manutenção dos veículos.
