@@ -39,7 +39,7 @@ Com esse ajuste a sensibilidade passa de 0.76 para 0.83.
 
 O modelo XGBoost treinado nos dados pré 2020 apresenta sensibilidade de 0.848 (s = 0.848) quando aplicado nos dados de 2020. Ou seja, o modelo prediz corretamente 84.8% dos veículos que precisaram de manutenção.
 
-Para determinarmos quanto teria sido gasto em 2020 se uma estratégia que utilizasse dessas predições fosse utilizada nós olhamos para alguns outros números.
+Para determinarmos quanto teria sido gasto em 2020 se uma estratégia que utilizasse dessas predições fosse utilizada, nós olhamos para alguns outros números.
 
 O modelo prediz a manutenção de 396 veículos (P = 396) enquanto os dados apresentam 375 veículos que precisaram de manutenção (M = 375).
 
